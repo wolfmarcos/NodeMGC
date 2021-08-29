@@ -11,4 +11,4 @@ const image = new Schema({
     public_id: String,
 });
 
-module.exports = model('Photo', image);
+module.exports = model('Photo', Photo);

@@ -1,7 +1,7 @@
-
- 
+//import('../models/phot'); // toma la construcion de como se ingresan los datos
+ //const Image = require('../models/image');
 const { Router } = require("express"); //optiene el metodo rutas , toma la ruta para poder definir en el server que ruta tomara
-const procesarData = require("../claudubary/procesandoData");
+const procesarData = require("../ariel/procesandoData");
 //const path = require('path');
 const router = Router(); // lo almasena y exporta
 
@@ -16,16 +16,17 @@ router.get("/a", (req, res) => {
   res.render("imagen_form.hbs");
 }); // renderiza y setea la pagina con lo que se le indique
 
-
+//  const data = req.body;
+  //  const file = req.file;
 router.post("/a", async (req , res) => {
-   const data = req.body;
-   const file = req.file;
-   await procesarData(data, file);//entrega  a la funcion caludinary 
-     
+  
+   
+    await cloudinary.v2.uploader.upload(req.file.path);
    
    res.send("enviado");
 });
-
+//procesarData(data, file);
+   //console.log(clau.config)
 //toma los datos por post
 module.exports = router;
 

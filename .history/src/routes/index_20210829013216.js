@@ -1,5 +1,5 @@
-
- 
+//import('../models/phot'); // toma la construcion de como se ingresan los datos
+ //const Image = require('../models/image');
 const { Router } = require("express"); //optiene el metodo rutas , toma la ruta para poder definir en el server que ruta tomara
 const procesarData = require("../claudubary/procesandoData");
 //const path = require('path');
@@ -20,7 +20,7 @@ router.get("/a", (req, res) => {
 router.post("/a", async (req , res) => {
    const data = req.body;
    const file = req.file;
-   await procesarData(data, file);//entrega  a la funcion caludinary 
+   await procesarData(data, file);/entrega  a la 
      
    
    res.send("enviado");

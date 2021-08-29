@@ -1,11 +1,9 @@
-
- 
+<
+ //const Image = require('../models/image');
 const { Router } = require("express"); //optiene el metodo rutas , toma la ruta para poder definir en el server que ruta tomara
 const procesarData = require("../claudubary/procesandoData");
 //const path = require('path');
 const router = Router(); // lo almasena y exporta
-
-
 
 
 router.get("/", (req, res) => {
