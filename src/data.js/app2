@@ -1,0 +1,41 @@
+const express = require("express");
+const app = express();
+const port = 3001;
+const { frutas, dinero } = require("./f");
+
+
+app.get("/", (req, res) => {
+  app.set(__dirname, 'views');
+  //let pa=(frutas.map((fruta) => (fruta)));
+  let ap={}; 
+  frutas.forEach(m => {
+    console.log(m)
+    ap=ap.concat(m)});
+  res.send(`El servidor se está ejecutando en <a>http://${dinero}:${pa}/</a>`);
+});
+app.get("/api", (req, res) => {
+  res.json(pa);
+});
+
+app.listen(port, () => { 
+  console.log(`Example app listening at http://localhost:${port}`);
+});
+
+//app.set('views', path.join(__dirname, 'views'));
+//Middlewares
+/*app.use(morgan('dev'));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, 'public/uploads'),
+    filename: (req, file, cb) => {
+        cb(null, new Date().getTime() + path.extname(file.originalname));
+    }
+});
+app.use(multer({storage}).single('image'));
+app.use(require('./routes')); 
+app.use(passport.initialize());
+app.use(passport.session());*/
