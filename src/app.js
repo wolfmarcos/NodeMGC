@@ -16,18 +16,16 @@ require('./database');//lebanta mongoos
 
 // Seteos
 //app.set('port', process.env.PORT || 3000);
-app.set('port', 3000);//indica el pueto
-app.set('views', path.join(__dirname, 'views'));//path une dos directorios . seleciona donde renderiza
-
-//motor de plantillas con su modulo hbs()
-app.engine('.hbs', exphbs( {
+app.set('port', 3000);//indica el puerto
+app.set('views', path.join(__dirname, 'views'));
+app.engine('.hbs', exphbs({
      defaultLayout: 'main',
-    layoutsDir: path.join(app.get('views'), 'layouts'),//contiene todas las partes en comun -lo que se repite
-    partialsDir: path.join(app.get('views'),'partials'),//  ''     '' y el eslaider de vistas con las imagenes
-    extname: '.hbs',// la selecion de imagenes 
-   // helpers: require('./lib/handlebars')
+    layoutsDir: path.join(app.get('views'), 'layouts'),
+    partialsDir: path.join(app.get('views'),'partials'),
+    extname: '.hbs',
+    //helpers: require('./lib/handlebars')
 }));
-app.set('view engine', '.hbs');//lebanta   el engine motor 
+app.set('view engine', '.hbs');
 
 //Middlewares
 app.use(morgan('dev'));//mostrar mensajes cortos por consola
@@ -41,14 +39,16 @@ app.use(express.json());//json
 // //app.use(multer().single('image'))//identifica si es una imagen que se envia al server antraves de 'image' para asi colocarla
 // /*
 const storage = multer.diskStorage({
-    
-    destination: path.join(__dirname, 'public/uploads'),//al subirla donde coloca la imagen carpeta
+    destination: path.join(__dirname, 'public/uploads'),
     filename: (req, file, cb) => {
-        cb(null, new Date().getTime() + path.extname(file.originalname));//nombra la imagen segun los segundos -cb error y el nombre- filr.indica datos originales-
+        cb(null, new Date().getTime() + path.extname(file.originalname));
     }
 });
+app.use(multer({storage}).single('image'));
+app.use(require('./routes')); 
+// identifica si es una umagen la que se sube al server -multer cual es el campo que analiza
+app.use(morgan('dev'));
 
-app.use(multer({storage}).single('image'));// identifica si es una umagen la que se sube al server -multer cual es el campo que analiza
 app.use(express.urlencoded({extended: false}));//entiende datos desde un formulario//extended:false para que solo entienda txto
 // app.use(require('./routes')); 
 // // app.use(session({
