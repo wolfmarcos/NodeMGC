@@ -11,7 +11,7 @@ cloudinary.config({
 
 
 const procesarData = async (data, file) => {
-  const { title, description, precio, categoria } = data;
+  const ({ title, description, precio, categoria } = data);
   //  console.log(file.path);
   // console.log({ m });
   const datosClau = await cloudinary.v2.uploader.upload(file.path);

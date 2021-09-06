@@ -11,14 +11,14 @@ cloudinary.config({
 
 
 const procesarData = async (data, file) => {
-  const { title, description, precio, categoria } = data;
+  const m = ({ title, description, precio, categoria } = data);
   //  console.log(file.path);
   // console.log({ m });
   const datosClau = await cloudinary.v2.uploader.upload(file.path);
   console.log({ title, description, precio, categoria }, datosClau);
 
   const newImagen = new image2({
-    title,
+    title:title,
     description,
     imageURL: datosClau.url,
     public_id: datosClau.public_id,

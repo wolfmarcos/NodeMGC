@@ -70,7 +70,7 @@ router.get('/a/:_id/:public_id', async (req, res) => {
 router.post("/a", async (req, res) => {
   const data = req.body;
   const file = req.file;
-  console.log(data);
+  console.log()
    procesarData(data, file);
 
   res.redirect("/a");
