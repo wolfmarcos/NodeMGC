@@ -6,7 +6,7 @@ const image2 = require("../models/image");
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUDE_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
+  api_secret: CLOUDINARY_API_SECRET
 });
 
 

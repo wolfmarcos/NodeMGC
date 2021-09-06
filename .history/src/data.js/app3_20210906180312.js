@@ -16,7 +16,7 @@ const app = express();
 
 // Seteos
 app.set('port', process.env.PORT || 3000);
-//app.set('port', 3000);//indica el pueto
+app.set('port', 3000);//indica el pueto
 app.set('views', path.join(__dirname, 'views'));//path une dos directorios . seleciona donde renderiza
 
 //motor de plantillas con su modulo hbs()

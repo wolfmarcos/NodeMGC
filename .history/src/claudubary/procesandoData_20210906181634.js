@@ -4,11 +4,13 @@ const fs =  require("fs-extra");
 //import('../models/phot'); // toma la construcion de como se ingresan los datos
 const image2 = require("../models/image");
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUDE_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET
+  cloud_name: CLOUDINARY_CLOUDE_NAME,
+  api_key: CLOUDINARY_API_KEY,
+  api_secret: "pHtueFQrfOnJ7puocu_iWy6C01o",
 });
-
+CLOUDINARY_CLOUDE_NAME=wolfmarcos
+CLOUDINARY_API_KEY=296315751869193
+CLOUDINARY_API_SECRET=pHtueFQrfOnJ7puocu_iWy6C01o
 
 const procesarData = async (data, file) => {
   const m = ({ title, description, precio, categoria } = data);
